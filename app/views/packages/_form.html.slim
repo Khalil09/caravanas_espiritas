@@ -1,0 +1,20 @@
+= form_for @package do |f|
+  - if @package.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@package.errors.count, "error")} prohibited this package from being saved:"
+      ul
+        - @package.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+
+    = f.nested_fields_for :years do |ff|
+      = ff.label "Anos a serem colocados"
+      = ff.text_field :name
+  = f.add_nested_fields_link :years
+  .actions = f.submit
