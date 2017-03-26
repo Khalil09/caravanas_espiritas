@@ -1,4 +1,4 @@
-class AddAttachmentAvatarToPackages < ActiveRecord::Migration
+class AddAttachmentImageToPackages < ActiveRecord::Migration
   def self.up
     change_table :packages do |t|
       t.attachment :image
