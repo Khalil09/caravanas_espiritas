@@ -12,6 +12,7 @@ table
   tbody
     - @packages.each do |package|
       tr
+        td = image_tag package.image.url(:thumbnail)
         td = package.name
         td = package.description
         td = link_to 'Show', package

@@ -1,0 +1,26 @@
+.navbar.navbar-default.navbar-fixed-top
+	.col-md-6.col-md-offset-3.col-sm-12.col-xs-12
+			ul
+				li
+					a Home
+				li
+					a Quem somos
+				li
+					a Pacotes
+
+
+.intro-section
+	.col-md-10.col-md-offset-1
+
+.packages-section	
+	.container#package-container
+		.row
+		- @packages.each do |package|
+			.col-sm-8.col-md-4
+				.thumbnail.min-height-control
+					= image_tag package.image.url(:thumbnail)
+					.caption
+						h3 = package.name
+						p = package.description
+						= link_to 'Detalhes', package
+

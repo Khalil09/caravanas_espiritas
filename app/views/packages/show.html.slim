@@ -7,6 +7,10 @@ p
   strong Description:
   = @package.description
 
+-@package.years.each do |years|
+	= link_to years.name, years_path  
+
+
 = link_to 'Edit', edit_package_path(@package)
 '|
 = link_to 'Back', packages_path

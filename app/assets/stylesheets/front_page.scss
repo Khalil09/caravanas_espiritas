@@ -1,0 +1,71 @@
+// Place all the styles related to the front_page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar.navbar-default{
+	background-color: #f8fbfb;
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+
+	@media (max-width: 800px) {
+ 		li a{
+ 			font-size: 2vh;
+ 		}
+	}
+
+	ul{
+		list-style-type: none;
+		text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f8fbfb;
+    line-height: 30px;
+	}
+
+	li {
+    display: inline-block;
+	}	
+
+	li a {
+    display: inline-block;
+    color: #0b130a;
+    font-size: 3vh;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+	}
+
+	li a:hover {
+		background-color: #b29747;
+	}
+}
+.vcenter {
+    position: relative;
+    top: 22%;
+}
+
+.intro-section{
+	min-height: 70vh;
+	background-image: image-url('bg-4.jpg');
+	background-size: cover;
+   background-repeat: no-repeat;
+}
+
+.packages-section{
+	background-color: #FFFFFF;
+	#package-container{
+		padding-top: 5vh;
+	}
+	
+	p{white-space: normal;}
+
+	.thumbnail{
+		background-color: #b29747;
+	}
+}
+
+.min-height-control{
+	min-height: 40vh;
+}
