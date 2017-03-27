@@ -10,8 +10,11 @@
 
 	@media (max-width: 800px) {
  		li a{
- 			font-size: 30px;
- 		}
+ 			font-size: 50px;
+		}
+		ul {
+			line-height: 60px;
+		}
 	}
 
 	ul{
