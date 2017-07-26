@@ -1,16 +1,12 @@
 p#notice = notice
+.container
+	h1 Descrição detalhada:
+	.jumbotron
+		= markdown(@package.md_description)
+	- @package.years.each do |years|
+		- if current_admin
+			= link_to years.name, package_year_users_path(@package, years), class: "btn btn-default"
+		- else
+			= link_to years.name, new_package_year_user_path(@package, years), class: "btn btn-default"
 
-p
-  strong Name:
-  = @package.name
-p
-  strong Description:
-  = @package.description
-
--@package.years.each do |years|
-	= link_to years.name, years_path  
-
-
-= link_to 'Edit', edit_package_path(@package)
-'|
-= link_to 'Back', packages_path
+	= link_to 'Back', root_path, class: "btn btn-primary"

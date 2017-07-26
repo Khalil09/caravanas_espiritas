@@ -5,7 +5,6 @@ table
     tr
       th Name
       th Package
-      th User
       th
       th
       th
@@ -14,10 +13,10 @@ table
     - @years.each do |year|
       tr
         td = year.name
-        td = year.package
-        td = year.user
-        td = link_to 'Show', year
-        td = link_to 'Edit', edit_year_path(year)
+        td = year.package.name
+        / td = year.users.name
+        td = link_to 'Show', package_year_path(year)
+        td = link_to 'Edit', edit_package_year_path(year)
         td = link_to 'Destroy', year, data: { confirm: 'Are you sure?' }, method: :delete
 
 br

@@ -5,11 +5,10 @@ p
   = @year.name
 p
   strong Package:
-  = @year.package
+  = @year.package.name
 p
-  strong User:
-  = @year.user
+  strong Users:
+  - @year.users.each do |year_users|
+  	p = year_users.name
 
-= link_to 'Edit', edit_year_path(@year)
-'|
-= link_to 'Back', years_path
+= link_to 'Edit', edit_package_year_path(@year)

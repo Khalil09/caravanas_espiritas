@@ -1,4 +1,4 @@
-= form_for @user do |f|
+= form_for [:package, @year, @user] do |f|
   - if @user.errors.any?
     #error_explanation
       h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
@@ -6,13 +6,13 @@
         - @user.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :telephone
-    = f.text_field :telephone
-  .actions = f.submit
+  .form-group
+    = f.label 'Nome completo:'
+    = f.text_field :name, placeholder: "Seu nome completo aqui",class: "form-control"
+  .form-group
+    = f.label "Email:"
+    = f.text_field :email, placeholder: "exemplo@email.com",class: "form-control"
+  .form-group
+    = f.label "Celular/Whatsaap: "
+    = f.text_field :telephone, placeholder:"(99)99999-9999",class: "form-control"
+  .actions = f.submit 'Registrar-se', class: "btn btn-success btn-lg btn-block"

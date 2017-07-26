@@ -1,6 +1,6 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
-  #before_action :authenticate_admin!, only: [:new ,:edit, :update, :destroy]
+  # before_action :authenticate_admin!, only: [:new, :edit]
 
   # GET /packages
   # GET /packages.json
@@ -11,6 +11,10 @@ class PackagesController < ApplicationController
   # GET /packages/1
   # GET /packages/1.json
   def show
+  end
+
+  def show_years
+    @years = @package.years
   end
 
   # GET /packages/new
@@ -71,6 +75,6 @@ class PackagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def package_params
-      params.require(:package).permit(:name, :description, :image, years_attributes: [:id, :name, :package_id, :_destroy])
+      params.require(:package).permit(:name, :description, :image, :md_description, :wpp, years_attributes: [:id, :name, :package_id, :_destroy])
     end
 end

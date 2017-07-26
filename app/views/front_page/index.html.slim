@@ -1,6 +1,13 @@
 .navbar.navbar-default.navbar-fixed-top
-	.col-md-6.col-md-offset-3.col-sm-12.col-xs-12
-			ul
+	.container-fluid
+		.navbar-header
+			button.navbar-toggle data-target="#myNavbar" data-toggle="collapse" type="button"
+				span.icon-bar
+				span.icon-bar
+				span.icon-bar#last-icon-bar
+			.navbar-brand Espiritour
+		#myNavbar.collapse.navbar-collapse
+			ul.nav.navbar-nav
 				li
 					a Home
 				li
@@ -12,15 +19,16 @@
 .intro-section
 	.col-md-10.col-md-offset-1
 
-.packages-section	
-	.container#package-container
-		.row
-		- @packages.each do |package|
-			.col-sm-8.col-md-4
-				.thumbnail.min-height-control
-					= image_tag package.image.url(:thumbnail)
-					.caption
-						h3 = package.name
-						p = package.description
-						= link_to 'Detalhes', package
+.packages-section
+		.container.col-sm-12.col-md-12#package-container
+			.row
+			- @packages.each do |package|
+				.col-xs-12.col-sm-12.col-md-4
+							.thumbnail.min-height-control
+								= image_tag package.image.url(:thumbnail)
+								.caption
+									= link_to package do
+										h3 = package.name
+									p = simple_format(word_wrap(package.description, line_width: 60))
+									= link_to 'Detalhes', package, class: "btn btn-primary"
 

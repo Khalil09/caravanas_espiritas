@@ -6,18 +6,29 @@
         - @package.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_area :description
+  .form-group
+    = f.label 'Nome'
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label 'Descrição(max: 140 characters)'
+    = f.text_area :description, maxlenght: 140, class: "form-control"
 
+  .form-group
+    = f.label 'Descrição detalhada'
+    = f.text_area :md_description, class: "form-control"
+
+  .form-group
+    = f.label 'Grupo do Whatsaap'
+    = f.text_field :wpp, class: "form-control"
+
+  .form-inline
+    = f.label "Anos que ocorrerá o pacote"
     = f.nested_fields_for :years do |ff|
-      = ff.label "Anos a serem colocados"
-      = ff.text_field :name
-      = ff.remove_nested_fields_link
-  = f.add_nested_fields_link :years
+      = ff.label "Ano: "
+      = ff.text_field :name, class: "form-control"
+      = ff.remove_nested_fields_link ' ', class: "btn btn-default glyphicon glyphicon-remove"
 
-  = f.file_field :image
-  .actions = f.submit
+    = f.add_nested_fields_link :years, ' ', class: "btn btn-default glyphicon glyphicon-plus"
+  .form-group
+    = f.file_field :image
+  .actions = f.submit 'Criar Pacote', class: "btn btn-success btn-lg btn-block"

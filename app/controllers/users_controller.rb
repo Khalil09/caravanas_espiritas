@@ -1,34 +1,35 @@
 class UsersController < ApplicationController
+  before_action :set_year
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_admin!, only: [:new]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-  end
-
-  # GET /users/1
-  # GET /users/1.json
-  def show
+    @users = @year.users
+    respond_to :html, :json
   end
 
   # GET /users/new
   def new
-    @user = User.new
+    @user = @year.users.build
+    respond_to :html, :json
   end
 
   # GET /users/1/edit
   def edit
+    @user = @year.users.find(params[:id])
+    respond_to :html, :json
   end
 
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    @user = @year.users.create(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -40,6 +41,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = @year.users.find(params[:id])
+    
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -54,6 +57,8 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = @year.users.find(params[:id])
+    
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -63,12 +68,16 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_year
+      @year = Year.find(params[:year_id])
+    end
+
     def set_user
-      @user = User.find(params[:id])
+      @user = @year.users.find(:id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :telephone)
+      params.require(:user).permit(:name, :email, :telephone, :year_id)
     end
 end

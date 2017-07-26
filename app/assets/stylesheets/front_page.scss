@@ -7,42 +7,71 @@
 	border-radius: 0;
 	border: 0;
 	margin: 0;
+	box-shadow: 0 8px 6px -6px #000;
 
-	@media (max-width: 800px) {
+	.navbar-toggle{
+		border-color: #b29747;
+		border-width: 0px;
+		margin-top: 5px;
+	}
+
+	#last-icon-bar{
+		margin-bottom: 30px;
+	}
+	.navbar-toggle .icon-bar {
+	  width: 130px;
+	  height: 2px;
+	  margin-top: 30px;
+	  padding-top: 5px;	
+	  background-color: #b29747;
+	  border-radius: 1px;
+	}
+
+	@media (max-width: 1024px) {
  		li a{
- 			font-size: 50px;
+ 			font-size: 4em !important;
 		}
 		ul {
-			line-height: 60px;
+			line-height: 10em !important;
 		}
+
+	   	.navbar-brand{
+	   		font-size: 50px;
+	   	}
+
+	   	.navbar-brand, .navbar-toogle,.navbar-nav li a {
+    		line-height: 150px;
+    		height: 150px;
+    		padding-top: 0;
+    	}
 	}
 
 	ul{
 		list-style-type: none;
 		text-align: center;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f8fbfb;
-    line-height: 30px;
+    	margin: 0;
+    	padding: 0;
+    	overflow: hidden;
+    	background-color: #f8fbfb;
+    	line-height: 2em;
 	}
 
 	li {
-    display: inline-block;
+    	display: inline-block;
 	}	
 
 	li a {
-    display: inline-block;
-    color: #0b130a;
-    font-size: 20px;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+	    display: inline-block;
+	    color: #0b130a;
+	    font-size: 1.5em;
+	    text-align: center;
+	    padding: 14px 16px;
+	    text-decoration: none;
 	}
 
 	li a:hover {
 		background-color: #b29747;
-	}
+	}	
 
 	.bottom-retangle{
 		height: 5px;
@@ -51,16 +80,12 @@
 	}
 
 }
-.vcenter {
-    position: relative;
-    top: 22%;
-}
 
 .intro-section{
 	min-height: 70vh;
 	background-image: image-url('bg-4.jpg');
 	background-size: cover;
-  background-repeat: no-repeat;
+  	background-repeat: no-repeat;
 }
 
 .packages-section{
@@ -69,14 +94,31 @@
 		padding-top: 5vh;
 	}
 	
+	.link-to-package{
+		text-decoration: none !important;
+		cursor: hand;
+	}
+
 	p{white-space: normal;	}
 
 	.thumbnail{
 		background-color: #b29747;
+
+		a{
+			text-decoration: none;	
+			color: black;
+		}
+
+		@media (max-width: 1024px) {
+			p{
+				font-size: 3em;
+				line-height: 50px;
+			}
+		}
 	}
 }
 
-.min-height-control{
-	min-height: 80vh;
-	max-height: 80vh;
-}
+// .min-height-control{
+// 	min-height: 30em;
+// 	max-height: 30em;
+// }
